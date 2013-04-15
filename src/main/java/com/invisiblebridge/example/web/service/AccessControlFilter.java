@@ -14,40 +14,41 @@ import javax.servlet.http.HttpServletResponse;
 
 public class AccessControlFilter implements Filter {
 
-	@Override
-	public void destroy() {
+    @Override
+    public void destroy() {
 
-	}
+    }
 
-	@Override
-	public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse,
-			FilterChain filterChain) throws IOException, ServletException {
-		HttpServletRequest req = (HttpServletRequest) servletRequest;
-		HttpServletResponse resp = (HttpServletResponse) servletResponse;
-		Cookie tokenCookie = getTokenCookie(req);
-		if(tokenCookie == null){
-			redirectToLogin(resp);
-		}
-		else{
-			filterChain.doFilter(servletRequest, servletResponse);
-		}
+    @Override
+    public void doFilter(ServletRequest servletRequest,
+	    ServletResponse servletResponse,
+	    FilterChain filterChain) throws IOException, ServletException {
+	HttpServletRequest req = (HttpServletRequest) servletRequest;
+	HttpServletResponse resp = (HttpServletResponse) servletResponse;
+	Cookie tokenCookie = getTokenCookie(req);
+	if (tokenCookie == null) {
+	    redirectToLogin(resp);
 	}
+	else {
+	    filterChain.doFilter(servletRequest, servletResponse);
+	}
+    }
 
-	private void redirectToLogin(HttpServletResponse resp) throws IOException {
-		resp.sendRedirect("login.html");
-	}
+    private void redirectToLogin(HttpServletResponse resp) throws IOException {
+	resp.sendRedirect("index.html");
+    }
 
-	private Cookie getTokenCookie(HttpServletRequest req) {
-		for(Cookie cookie : req.getCookies()){
-			if("token".equals(cookie.getName())){
-				return cookie;
-			}
-		}
-		return null;
+    private Cookie getTokenCookie(HttpServletRequest req) {
+	for (Cookie cookie : req.getCookies()) {
+	    if ("token".equals(cookie.getName())) {
+		return cookie;
+	    }
 	}
+	return null;
+    }
 
-	@Override
-	public void init(FilterConfig arg0) throws ServletException {
-	}
+    @Override
+    public void init(FilterConfig arg0) throws ServletException {
+    }
 
 }

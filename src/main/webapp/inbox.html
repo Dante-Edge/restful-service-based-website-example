@@ -3,6 +3,7 @@
 <header>
 <title>Resutful Web Service Based Example</title>
 <script language="javascript" src="js/jquery-1.9.1.min.js"></script>
+<script language="javascript" src="js/login-redirect.js"></script>
 <script language="javascript" src="js/mustache.js"></script>
 <script src="js/yahoo-min.js"></script>
 <script src="js/cookie-min.js"></script>
@@ -11,9 +12,6 @@ $(function(){
 	$.ajax({
 		'url' : 'inbox',
 		'method' : 'get',
-		'headers' : {
-			'Authorization' : 'AuthToken ' + YAHOO.util.Cookie.get("token")
-		},		
 		'dataType' : 'json',
 		'success' : function(data, status){
 			 $("#container").html(Mustache.render($("#inbox-list-template").html(), data));
