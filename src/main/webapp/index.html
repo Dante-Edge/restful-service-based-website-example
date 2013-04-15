@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<header>
+<title>Resutful Web Service Based Example</title>
+<script language="javascript" src="js/jquery-1.9.1.min.js"></script>
+<script language="javascript">
+$(function(){
+	$("#login").click(function(){
+		$.ajax({
+			'url' : 'login',
+			'method' : 'post',
+			'contentType' : 'application/json',
+			'data' : JSON.stringify({
+				'username' : $('#username').val(),
+				'password' : $('#password').val()
+			}),
+			'dataType' : 'json',
+			'success' : function(data, status){
+				console.log(status);
+				document.cookie = 'token=' 
+					+ data.token
+					+ ";expires="
+					+ new Date().getDate() + 30;
+				location.href="inbox.html";
+			},
+			'error' : function(jqXHR, status, msg){
+				console.log(status + "  " + msg); 
+			}
+		});
+	});
+});
+</script>
+</header>
+<body>
+<h1>Welcome to our example.</h1>
+<label for="username">Username:</label>
+<input type="text" name="username" id="username" placeholder="Your username." value="Dante"/>
+<label for="password">Password:<label>
+<input type="password" name="password" id="password" placeholder="Your password." value="iamgod"/>
+
+<button id="login">Sign In</button>
+</body>
+</html>

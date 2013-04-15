@@ -1,0 +1,54 @@
+{
+"news":[
+{
+	"title":"New Hash-based Sharding Feature in MongoDB 2.4",
+	"author":"Dante",
+	"summary": "Lots of MongoDB users enjoy the flexibility of custom shard keys in organizing a sharded collection’s documents. For certain common workloads though, like key/value lookup, using the natural choice of _id as a shard key isn’t optimal because default ObjectId’s are ascending, resulting in poor write distribution.  Creating randomized _ids or choosing another well-distributed field is always possible, but this adds complexity to an app and is another place where something could go wrong."
+},
+{
+	"title":"Deployment Best Practices: Monitor your resources",
+	"author":"Ken",
+	"summary":"When you’re preparing a MongoDB deployment, you should try to understand how your application is going to hold up in production. It’s a good idea to develop a consistent, repeatable approach to managing your deployment environment so that you can minimize any surprises once you’re in production."
+},
+{
+	"title":"MongoDB 2.4 Javascript Changes",
+	"author":"Sandy",
+	"summary":"The upcoming release of MongoDB 2.4 brings an exciting change to the JavaScript engine. Previously, MongoDB ran Spidermonkey 1.7, but going forward, MongoDB will be running V8, the open-source high-performance JavaScript engine from Google. This means that from now on, whenever JavaScript is executed, V8 will be running the show."
+},
+{
+	"title":"MongoDB 2.4 Released",
+	"author":"Thomas",
+	"summary":"The MongoDB Engineering Team is pleased to announce the release of MongoDB 2.4. This is the latest stable release, following the September 2012 release of MongoDB 2.2. This release contains key new features along with performance improvements and bug fixes. We have outlined some of the key features below. For additional details about the release:"
+},
+{
+	"title":"MongoDB Tip: The touch Command",
+	"author":"Squall",
+	"summary":"MongoDB 2.2 introduced the touch command, which loads data from the data storage layer into memory. The touch command will load a collection’s documents, indexes or both into memory. This can be ideal to preheat a newly started server, in order to avoid page faults and slow performance once the server is brought into production. You can also use this when adding a new secondary to an existing replica set to ensure speedy subsequent reads. "
+},
+{
+	"title":"Analyzing Your MongoDB Data with Analytica",
+	"author":"Ivan",
+	"summary":"Analytica is an analytics platform that makes it easy to analyze and report on data like user profiles, event logs, product catalogs, user-generated content, financial assets, or anything else you may have stored in you MongoDB database."
+},
+{
+	"title":"Checking Disk Performance with the mongoperf Utility",
+	"author":"Nord",
+	"summary":"mongoperf is a utility for checking disk i/o performance of a server independent of MongoDB. It performs simple timed random disk i/o’s"
+},
+{
+	"title":"MongoDB Text Search: Experimental Feature in MongoDB 2.4",
+	"author":"Khan",
+	"summary":"Text search (SERVER-380) is one of the most requested features for MongoDB 10gen is working on an experimental text-search feature, to be released in v2.4, and we’re already seeing some talk in the community about the native implementation within the server. We view this as an important step towards fulfilling a community need. "
+},
+{
+	"title":"MongoDB Schema Design: Insights and Tradeoffs from Jetlore",
+	"author":"Jetlore",
+	"summary":"MongoDB’s flexible schema is a powerful feature, and to build a successful first application you need to know how to leverage this feature to its full extent. In this presentation, Montse Medina outlines lessons learned from building Jetlore, a social content marketing platform. Some performance tips from this video:"
+},
+{
+	"title":"Performance Tips: MongoDB at Firescope",
+	"author":"Phonix",
+	"summary":"Starting to work with any new technology or new API is always challenging at first. You’re often not quite sure of the best ways to get things done or if you’re are using the new technology in the most efficient manner. "
+}
+]
+}

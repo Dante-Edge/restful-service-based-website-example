@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<header>
+<title>Resutful Web Service Based Example</title>
+<script language="javascript" src="js/jquery-1.9.1.min.js"></script>
+<script language="javascript" src="js/mustache.js"></script>
+<script src="js/yahoo-min.js"></script>
+<script src="js/cookie-min.js"></script>
+<script language="javascript">
+$(function(){
+	$.ajax({
+		'url' : 'inbox',
+		'method' : 'get',
+		'headers' : {
+			'Authorization' : 'AuthToken ' + YAHOO.util.Cookie.get("token")
+		},		
+		'dataType' : 'json',
+		'success' : function(data, status){
+			 $("#container").html(Mustache.render($("#inbox-list-template").html(), data));
+		}
+	});
+});
+</script>
+
+<script language="mustache" id="inbox-list-template">
+<ul id="blog-list">
+	{{#news}}
+	<li>
+		<h2>{{title}}</h2>
+		<p><label>{{author}}</label></p>
+		<p>{{summary}}</p>
+	</li>
+	{{/news}}
+</ul>
+</script>
+<style>
+
+</style>
+<body>
+<h1>Dante's blog coast</h1>
+<div id="container">Trying to load blog entries...</div>
+</body>
+</html>

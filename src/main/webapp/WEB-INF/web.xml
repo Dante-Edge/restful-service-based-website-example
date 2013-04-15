@@ -1,0 +1,35 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+	<display-name>Restful Service Based Example</display-name>
+	
+	<filter>
+		<filter-name>access-controller</filter-name>
+		<filter-class>com.invisiblebridge.example.web.service.AccessControlFilter</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>access-controller</filter-name>
+		<url-pattern>/inbox.html</url-pattern>
+	</filter-mapping>
+	
+	<servlet>
+		<servlet-name>login-service</servlet-name>
+		<servlet-class>com.invisiblebridge.example.web.service.LoginService</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>inbox-service</servlet-name>
+		<servlet-class>com.invisiblebridge.example.web.service.InboxService</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>login-service</servlet-name>
+		<url-pattern>/login</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>inbox-service</servlet-name>
+		<url-pattern>/inbox</url-pattern>
+	</servlet-mapping>
+</web-app>
